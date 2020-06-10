@@ -76,7 +76,7 @@ class GameViewController: UIViewController {
         }
 
         
-        if CountInt == 2 {
+        if CountInt == 100 {
             timer.invalidate()
             
             self.performSegue(withIdentifier: "toResult", sender: nil)
