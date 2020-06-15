@@ -32,7 +32,7 @@ class ImagePostViewController: UIViewController {
     
     func postImageToNCMB() {
     
-        let resizedImage = self.resizeImage(image: pickedImage, radio: 0.1)
+        let resizedImage = self.resizeImage(image: pickedImage, ratio: 0.1)
         let imageData = NSData(data: resizedImage.pngData()!) as NSData
     
     let filename = "\(NSUUID().uuidString).png"
@@ -48,7 +48,7 @@ class ImagePostViewController: UIViewController {
                 print("写真保存成功")
                 
                 let imageMeta = NCMBObject(className: "Photo")
-                imageMeta?.setObject(filename, forKey: "Photo")
+                imageMeta?.setObject(filename, forKey: "filename")
                 imageMeta?.setObject(NCMBUser.current(), forKey: "owner")
                 imageMeta?.saveInBackground({(error) in
                     if (error != nil) {
@@ -77,8 +77,8 @@ class ImagePostViewController: UIViewController {
         })
     }
     
-    func resizeImage(image: UIImage, radio: CGFloat) -> UIImage {
-        let size = CGSize(width: image.size.width * radio, height: image.size.height)
+    func resizeImage(image: UIImage, ratio: CGFloat) -> UIImage {
+        let size = CGSize(width: image.size.width * ratio, height: image.size.height * ratio)
         UIGraphicsBeginImageContext(size)
         image.draw(in: CGRect(x: 0,y: 0, width: size.width, height: size.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()

@@ -82,7 +82,7 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeLineCollectionViewCell", for: indexPath as IndexPath) as! TimeLineCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeLineCollectionViewCell", for: indexPath) as! TimeLineCollectionViewCell
         let photo = photos.object(at: indexPath.row) as! NCMBObject
         let user = photo.object(forKey: "owner") as! NCMBUser
         cell.userIdLabel.text = user.userName
@@ -108,9 +108,9 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
     return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexpath: IndexPath) ->CGSize {
-    let size = self.view.frame.width
-    return CGSize(width: size, height: size + 70)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = self.view.frame.width
+        return CGSize(width: size, height: size + 70)
     }
     
     @objc func checkButtonTapped(sender:UIButton) {
