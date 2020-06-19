@@ -40,7 +40,7 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>I always need location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>I need location when app in use</string>

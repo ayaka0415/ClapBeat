@@ -176,11 +176,68 @@
                     <navigationItem key="navigationItem" title="お好み一覧" id="ApP-J1-Mr6"/>
                     <connections>
                         <outlet property="tableView" destination="UU5-WN-TnY" id="NeJ-bF-xyk"/>
+                        <segue destination="r7d-ZD-VIN" kind="show" identifier="toUserDetail" id="g7D-zn-y64"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaQ-0K-kcc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1756" y="818.14092953523243"/>
+        </scene>
+        <!--ユーザ詳細-->
+        <scene sceneID="1Ei-d4-XE1">
+            <objects>
+                <viewController id="r7d-ZD-VIN" customClass="UserDetailViewController" customModule="Deai" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IjS-aD-SlN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YHd-ti-Ivc">
+                                <rect key="frame" x="62.5" y="104" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="6ac-7e-YRi"/>
+                                    <constraint firstAttribute="width" constant="250" id="7ts-kh-TYv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIU-T7-rRa">
+                                <rect key="frame" x="40" y="444" width="295" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgh-7o-LQm">
+                                <rect key="frame" x="62.5" y="537" width="250" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="g64-GE-BRA"/>
+                                    <constraint firstAttribute="height" constant="40" id="ptr-Dt-38T"/>
+                                </constraints>
+                                <state key="normal" title="連絡する"/>
+                                <connections>
+                                    <action selector="contact:" destination="r7d-ZD-VIN" eventType="touchUpInside" id="hnf-cH-EX2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pgh-7o-LQm" firstAttribute="centerX" secondItem="IjS-aD-SlN" secondAttribute="centerX" id="1qu-YM-b1U"/>
+                            <constraint firstItem="YHd-ti-Ivc" firstAttribute="top" secondItem="WpZ-ro-tOg" secondAttribute="top" constant="60" id="9lx-Rn-G1r"/>
+                            <constraint firstItem="UIU-T7-rRa" firstAttribute="leading" secondItem="WpZ-ro-tOg" secondAttribute="leading" constant="40" id="CF5-yC-mRy"/>
+                            <constraint firstItem="YHd-ti-Ivc" firstAttribute="centerX" secondItem="IjS-aD-SlN" secondAttribute="centerX" id="FMM-5b-GCg"/>
+                            <constraint firstItem="WpZ-ro-tOg" firstAttribute="trailing" secondItem="UIU-T7-rRa" secondAttribute="trailing" constant="40" id="cWt-Yk-ukm"/>
+                            <constraint firstItem="UIU-T7-rRa" firstAttribute="top" secondItem="YHd-ti-Ivc" secondAttribute="bottom" constant="90" id="gUX-1g-DF7"/>
+                            <constraint firstItem="WpZ-ro-tOg" firstAttribute="bottom" secondItem="pgh-7o-LQm" secondAttribute="bottom" constant="90" id="uwG-tN-3S6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WpZ-ro-tOg"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ユーザ詳細" id="aTa-aJ-KZV"/>
+                    <connections>
+                        <outlet property="imageView" destination="YHd-ti-Ivc" id="85i-mg-sfC"/>
+                        <outlet property="mailLabel" destination="UIU-T7-rRa" id="1Q7-Ah-jwg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u53-MH-17u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2517" y="817"/>
         </scene>
         <!--ログイン-->
         <scene sceneID="u5F-4q-Wua">

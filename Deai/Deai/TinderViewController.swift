@@ -74,13 +74,13 @@ class TinderViewController: UIViewController {
                 let interestedInWoman = NCMBUser.current()?.object(forKey: "interestedInWoman") as! Bool
                 
                 let query2 = NCMBQuery(className: "user")
-                query2?.whereKey("geopoint", nearGeoPoint: currentGeoPoint, withinKilometers:  1.0)
+//                query2?.whereKey("geopoint", nearGeoPoint: currentGeoPoint, withinKilometers:  1.0)
                 //探している性別に合わせて検索条件変更
-                if interestedInWoman == true {
-                    query2?.whereKey("gender", equalTo: "female")
-                } else {
-                    query2?.whereKey("gender", equalTo: "male")
-                }
+//                if interestedInWoman == true {
+//                    query2?.whereKey("gender", equalTo: "female")
+//                } else {
+//                    query2?.whereKey("gender", equalTo: "male")
+//                }
                 //取得件数は1
                 query2?.limit = 1
                 //アクションした人対象外

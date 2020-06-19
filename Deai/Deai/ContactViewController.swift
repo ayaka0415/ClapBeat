@@ -32,6 +32,7 @@ class ContactViewController: UIViewController, UITableViewDataSource, UITableVie
         let query = NCMBQuery(className: "Action")
         query?.whereKey("from", equalTo: NCMBUser.current())
         query?.whereKey("acceptedOrRejected", equalTo: "accepted")
+        query?.includeKey("to")
         query?.findObjectsInBackground({(objects, error) in
             if error != nil {
                 print("取得失敗:\(error)")
@@ -57,4 +58,16 @@ class ContactViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.textLabel!.text = toUser.userName
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let toUser = self.objects[indexPath.row].object(forKey: "to") as! NCMBUser
+        self.performSegue(withIdentifier: "toUserDetail", sender: toUser)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toUserDetail" {
+            let vc = segue.destination as! UserDetailViewController
+            vc.user = sender as! NCMBUser
+        }
+}
 }
